@@ -1,1 +1,3 @@
 # NYTimesCrosswordSchool
+
+for study purposes

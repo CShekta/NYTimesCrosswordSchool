@@ -50,29 +50,35 @@
 
                 <!-- <p>End of clues is: {{ lastQuestionPlace }}</p> -->
 
-                <h3 v-if="crosswordQuestion == null">Question here</h3>
-                <div v-else>
-                    <h2> {{ crosswordQuestion.Question }} </h2>
-                    <p> {{ crosswordQuestion.Answer.length }} letters </p>
-                    <p> </p> Frequency: {{ crosswordQuestion.Frequency }}
-                    <p></p>{{ crosswordQuestion.Day }}
+                <div class="card" style="width: 25rem;">
+                    <div class="card-header">Frequency: {{ crosswordQuestion.Frequency }} </div>
+                    <div class="card-body">
+                        <h3 v-if="crosswordQuestion == null">Question here</h3>
 
-                    <br>
+                        <h5 v-else class="card-title text-center">{{ crosswordQuestion.Question }}</h5>
+<!--                        <h6 class="card-subtitle mb-2 text-muted">Day: {{ crosswordQuestion.Day }}</h6>-->
+                        <p class="card-text text-center">{{ crosswordQuestion.Answer.length }} letters </p>
 
-                    <p v-if="this.showAnswer == false"></p>
-                    <h3 v-else> {{ crosswordQuestion.Answer }} </h3>
-
-                    <br>
-
-                    <p v-if="this.showExplanation == false"></p>
-                    <span v-else> {{ crosswordQuestion.Explanation }} </span>
+                    </div>
                 </div>
 
+                <p v-if="this.showAnswer == false"></p>
+                <div v-else class="card my-4" style="width: 25rem;">
+                    <div class="card-header">Day: {{ crosswordQuestion.Day }} </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ crosswordQuestion.Answer }}</h5>
+                        <p class="card-text">{{ crosswordQuestion.Explanation }} letters </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md">
                 <!-- for the above, just render them all, but only show the first. and then have functions to toggle a boolean for each, and then have if-true for each div. and the next button resets all -->
 
-                <button type="button" class="btn btn-outline-dark" @click="buttonShowAnswer()">Answer</button>
-                <button type="button" class="btn btn-outline-dark" @click="buttonShowExplanation()">Explanation</button>
-                <button type="button" class="btn btn-outline-dark" @click="getQuestion()">New Crossword Question</button>
+                <button type="button" class="btn btn-outline-info" @click="buttonShowAnswer()">Answer</button>
+<!--                <button type="button" class="btn btn-outline-secondary" @click="buttonShowExplanation()">Explanation</button>-->
+                <button type="button" class="btn btn-outline-success" @click="getQuestion()">New Crossword Question</button>
 
                 <hr>
 
@@ -104,7 +110,11 @@
 
 
             </div> <!-- end of col-12 -->
+
         </div>
+
+
+            </div>
     </div>
 
 
