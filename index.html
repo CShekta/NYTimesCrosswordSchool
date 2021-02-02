@@ -46,12 +46,12 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md">
+            <div class="col-6 col-md">
 
                 <!-- <p>End of clues is: {{ lastQuestionPlace }}</p> -->
 
                 <div class="card" style="width: 25rem;">
-                    <div class="card-header">Frequency: {{ crosswordQuestion.Frequency }} </div>
+                    <div class="card-header text-right text-white bg-dark font-italic">Frequency: {{ crosswordQuestion.Frequency }} </div>
                     <div class="card-body">
                         <h3 v-if="crosswordQuestion == null">Question here</h3>
 
@@ -64,60 +64,43 @@
 
                 <p v-if="this.showAnswer == false"></p>
                 <div v-else class="card my-4" style="width: 25rem;">
-                    <div class="card-header">Day: {{ crosswordQuestion.Day }} </div>
+                    <div class="card-header text-right bg-info font-italic">Day: {{ crosswordQuestion.Day }} </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{ crosswordQuestion.Answer }}</h5>
-                        <p class="card-text">{{ crosswordQuestion.Explanation }} letters </p>
+                        <h5 class="card-title text-center">{{ crosswordQuestion.Answer }}</h5>
+                        <p class="card-text font-weight-light">{{ crosswordQuestion.Explanation }} letters </p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md">
+            <div class="col-6 col-md">
                 <!-- for the above, just render them all, but only show the first. and then have functions to toggle a boolean for each, and then have if-true for each div. and the next button resets all -->
-
-                <button type="button" class="btn btn-outline-info" @click="buttonShowAnswer()">Answer</button>
+                <button type="button" class="btn btn-large btn-outline-info my-3" @click="buttonShowAnswer()">Answer</button>
 <!--                <button type="button" class="btn btn-outline-secondary" @click="buttonShowExplanation()">Explanation</button>-->
-                <button type="button" class="btn btn-outline-success" @click="getQuestion()">New Crossword Question</button>
-
-                <hr>
-
-                <div>
-                    <div>
-                        <p>Questions answered: {{ numOfQuestionsAnswered }}</p>
-                        <p id="timer"></p>
-                    </div>
-
-                    <!-- <div> {{ crosswordQuestion }} </div> -->
-
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <label for="validationCustom01">Starting Place</label>
-                            <input v-model="firstQuestionPlace" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="validationCustom01">Ending Place</label>
-                            <input v-model="lastQuestionPlace" class="form-control" placeholder="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="collapse show" id="myCollapsible">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-
-
-            </div> <!-- end of col-12 -->
-
+                <button type="button" class="btn btn-large btn-outline-success" @click="getQuestion()">New Crossword Question</button>
+            </div> <!-- end of col -->
         </div>
 
+<!--        <div class="row mt-3">-->
+<!--            <div>-->
+<!--                <div>-->
+<!--                    <p>Questions answered: {{ numOfQuestionsAnswered }}</p>-->
+<!--                    <p id="timer"></p>-->
+<!--                </div>-->
 
-            </div>
+<!--                &lt;!&ndash; <div> {{ crosswordQuestion }} </div> &ndash;&gt;-->
+
+<!--                <div class="form-row">-->
+<!--                    <div class="col-md-6">-->
+<!--                        <label for="validationCustom01">Starting Place</label>-->
+<!--                        <input v-model="firstQuestionPlace" class="form-control">-->
+<!--                    </div>-->
+<!--                    <div class="col-md-6">-->
+<!--                        <label for="validationCustom01">Ending Place</label>-->
+<!--                        <input v-model="lastQuestionPlace" class="form-control" placeholder="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
-
-
 
 </div> <!-- end of #app div -->
 
